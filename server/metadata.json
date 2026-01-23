@@ -1,0 +1,184 @@
+{
+  "hr": {
+    "originalKey": "hr",
+    "label": "Heart Rate",
+    "unit": "bpm",
+    "description": "Heart rate measurement",
+    "category": "sensor"
+  },
+  "spo2": {
+    "originalKey": "spo2",
+    "label": "SpO2",
+    "unit": "%",
+    "description": "Blood oxygen saturation",
+    "category": "sensor"
+  },
+  "stress": {
+    "originalKey": "stress",
+    "label": "Stress",
+    "unit": "%",
+    "description": "Stress level",
+    "category": "sensor"
+  },
+  "temperature": {
+    "originalKey": "temperature",
+    "label": "Temperature",
+    "unit": "°C",
+    "description": "Temperature reading",
+    "category": "sensor"
+  },
+  "level": {
+    "originalKey": "level",
+    "label": "Level",
+    "unit": "%",
+    "description": "Level measurement",
+    "category": "sensor"
+  },
+  "lat": {
+    "originalKey": "lat",
+    "label": "Latitude",
+    "unit": "°",
+    "description": "GPS latitude",
+    "category": "technical"
+  },
+  "lon": {
+    "originalKey": "lon",
+    "label": "Longitude",
+    "unit": "°",
+    "description": "GPS longitude",
+    "category": "technical"
+  },
+  "helmet_on": {
+    "originalKey": "helmet_on",
+    "label": "Helmet Status",
+    "unit": "",
+    "description": "Safety helmet on/off status",
+    "category": "status"
+  },
+  "sos": {
+    "originalKey": "sos",
+    "label": "SOS Alert",
+    "unit": "",
+    "description": "Emergency SOS signal",
+    "category": "status"
+  },
+  "is_leaked": {
+    "originalKey": "is_leaked",
+    "label": "Leak Detection",
+    "unit": "",
+    "description": "Leak sensor status",
+    "category": "status"
+  },
+  "latitude": {
+    "originalKey": "latitude",
+    "label": "Latitude",
+    "unit": "°",
+    "description": "GPS latitude coordinate",
+    "category": "technical"
+  },
+  "longitude": {
+    "originalKey": "longitude",
+    "label": "Longitude",
+    "unit": "°",
+    "description": "GPS longitude coordinate",
+    "category": "technical"
+  },
+  "speed_kmph": {
+    "originalKey": "speed_kmph",
+    "label": "Speed",
+    "unit": "km/h",
+    "description": "Movement speed in kilometers per hour",
+    "category": "sensor"
+  },
+  "altitude_m": {
+    "originalKey": "altitude_m",
+    "label": "Altitude",
+    "unit": "m",
+    "description": "Elevation above sea level",
+    "category": "sensor"
+  },
+  "valid": {
+    "originalKey": "valid",
+    "label": "GPS Valid",
+    "unit": "",
+    "description": "GPS signal validity status",
+    "category": "status"
+  },
+  "satellites": {
+    "originalKey": "satellites",
+    "label": "Satellites",
+    "unit": "",
+    "description": "Number of GPS satellites connected",
+    "category": "sensor"
+  },
+  "hdop": {
+    "originalKey": "hdop",
+    "label": "HDOP",
+    "unit": "",
+    "description": "Horizontal dilution of precision",
+    "category": "technical"
+  },
+  "heart_rate": {
+    "originalKey": "heart_rate",
+    "label": "Heart Rate",
+    "unit": "bpm",
+    "description": "Heart beats per minute",
+    "category": "sensor"
+  },
+  "date_ist": {
+    "originalKey": "date_ist",
+    "label": "Date (IST)",
+    "unit": "",
+    "description": "Current date in IST timezone",
+    "category": "technical"
+  },
+  "time_ist": {
+    "originalKey": "time_ist",
+    "label": "Time",
+    "unit": "IST",
+    "description": "Current time in IST timezone",
+    "category": "technical"
+  },
+  "type": {
+    "originalKey": "type",
+    "label": "SOS Alert",
+    "unit": "",
+    "description": "SOS button status (0=safe, 1=emergency)",
+    "category": "status"
+  },
+  "gps_valid": {
+    "originalKey": "gps_valid",
+    "label": "GPS Valid",
+    "unit": "",
+    "description": "GPS signal validity",
+    "category": "status"
+  },
+  "valid_gps": {
+    "originalKey": "valid_gps",
+    "label": "valid_gps",
+    "unit": "",
+    "description": "analyzing...",
+    "category": "other"
+  },
+  "Hello": {
+    "originalKey": "Hello",
+    "label": "hello",
+    "unit": "",
+    "description": "Manual entry",
+    "category": "other"
+  },
+  "device_id": {
+    "originalKey": "device_id",
+    "label": "device_id",
+    "unit": "",
+    "description": "analyzing...",
+    "category": "other"
+  },
+  "hello": {
+    "originalKey": "hello",
+    "label": "Hello",
+    "unit": "",
+    "description": "Auto-detected field",
+    "category": "other"
+  }
+}
