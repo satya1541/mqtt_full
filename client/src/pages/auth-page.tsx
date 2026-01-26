@@ -7,7 +7,7 @@ import { insertUserSchema, InsertUser } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { Loader2, User, Lock, Monitor, ChevronDown, Check } from "lucide-react";
+import { Loader2, User as UserIcon, Lock as LockIcon, Monitor as MonitorIcon, ChevronDown, Check } from "lucide-react";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -96,7 +96,7 @@ export default function AuthPage() {
                     </div>
 
                     {isLogin ? (
-                        <Form {...loginForm}>
+                        <Form {...loginForm} key="login-form">
                             <form onSubmit={loginForm.handleSubmit((data) => loginMutation.mutate(data))} className="space-y-5">
                                 <FormField
                                     control={loginForm.control}
@@ -105,9 +105,10 @@ export default function AuthPage() {
                                         <FormItem className="space-y-1">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
+                                                    <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
                                                     <Input
                                                         {...field}
+                                                        value={field.value || ""}
                                                         placeholder="USERNAME"
                                                         className="bg-[#242c3b] border-[#3a4454] text-white h-13 pl-14 rounded-full focus:ring-1 focus:ring-cyan-500/20 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest"
                                                     />
@@ -124,9 +125,10 @@ export default function AuthPage() {
                                         <FormItem className="space-y-1">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <Lock className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
+                                                    <LockIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
                                                     <Input
                                                         {...field}
+                                                        value={field.value || ""}
                                                         type="password"
                                                         placeholder="PASSWORD"
                                                         className="bg-[#242c3b] border-[#3a4454] text-white h-13 pl-14 rounded-full focus:ring-1 focus:ring-cyan-500/20 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest"
@@ -178,17 +180,24 @@ export default function AuthPage() {
                             </form>
                         </Form>
                     ) : (
-                        <Form {...registerForm}>
+                        <Form {...registerForm} key="register-form">
                             <form onSubmit={registerForm.handleSubmit((data) => registerMutation.mutate(data))} className="space-y-4">
                                 <FormField
                                     control={registerForm.control}
                                     name="username"
                                     render={({ field }) => (
-                                        <FormItem className="space-y-1">
+                                        <FormItem className="space-y-1 relative z-30">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
-                                                    <Input {...field} placeholder="USERNAME" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
+                                                    <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
+                                                    <Input
+                                                        {...field}
+                                                        id="reg-username"
+                                                        autoFocus={!isLogin}
+                                                        value={field.value || ""}
+                                                        placeholder="USERNAME"
+                                                        className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest"
+                                                    />
                                                 </div>
                                             </FormControl>
                                             <FormMessage className="text-[10px] text-rose-400 pl-4" />
@@ -199,11 +208,17 @@ export default function AuthPage() {
                                     control={registerForm.control}
                                     name="fullName"
                                     render={({ field }) => (
-                                        <FormItem className="space-y-1">
+                                        <FormItem className="space-y-1 relative z-30">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
-                                                    <Input {...field} value={field.value || ""} placeholder="FULL NAME" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
+                                                    <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
+                                                    <Input
+                                                        {...field}
+                                                        id="reg-fullname"
+                                                        value={field.value || ""}
+                                                        placeholder="FULL NAME"
+                                                        className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest"
+                                                    />
                                                 </div>
                                             </FormControl>
                                             <FormMessage className="text-[10px] text-rose-400 pl-4" />
@@ -214,11 +229,11 @@ export default function AuthPage() {
                                     control={registerForm.control}
                                     name="division"
                                     render={({ field }) => (
-                                        <FormItem className="space-y-1">
+                                        <FormItem className="space-y-1 relative z-30">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <Monitor className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
-                                                    <Input {...field} placeholder="DIVISION" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
+                                                    <MonitorIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
+                                                    <Input {...field} value={field.value || ""} placeholder="DIVISION" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
                                                 </div>
                                             </FormControl>
                                             <FormMessage className="text-[10px] text-rose-400 pl-4" />
@@ -229,11 +244,11 @@ export default function AuthPage() {
                                     control={registerForm.control}
                                     name="password"
                                     render={({ field }) => (
-                                        <FormItem className="space-y-1">
+                                        <FormItem className="space-y-1 relative z-30">
                                             <FormControl>
                                                 <div className="relative">
-                                                    <Lock className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
-                                                    <Input {...field} type="password" placeholder="PASSWORD" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
+                                                    <LockIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500 pointer-events-none" />
+                                                    <Input {...field} value={field.value || ""} type="password" placeholder="PASSWORD" className="bg-[#242c3b] border-[#3a4454] text-white h-12 pl-14 rounded-full focus:ring-1 focus:border-cyan-500/40 transition-all placeholder:text-gray-600 placeholder:text-[10px] placeholder:font-bold placeholder:tracking-widest" />
                                                 </div>
                                             </FormControl>
                                             <FormMessage className="text-[10px] text-rose-400 pl-4" />
@@ -283,7 +298,7 @@ export default function AuthPage() {
                         <div className="space-y-2">
                             <Label htmlFor="forgot-username" className="text-[10px] uppercase font-bold text-gray-500 tracking-widest pl-2">Username</Label>
                             <div className="relative">
-                                <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                                <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                                 <Input
                                     id="forgot-username"
                                     value={forgotUsername}
